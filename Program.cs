@@ -11,7 +11,7 @@ namespace EventHubProducerV5
    {
       static async Task Main(string[] args)
       {
-         var hubConn = "Endpoint=sb://chyaeventhub.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=//JboujWToYmJ2tytgSKApsCgERt2OC4O4/H5uXD7CQ=";
+         var hubConn = "Endpoint=sb://chyaeventhub.servicebus.windows.net/;SharedAccessKeyName=SendToHub;SharedAccessKey=KOP/lcCcI7UdbuQPmJyZUxK4ujYzFdrtX3MLJLzNJyU=;EntityPath=chyahub";
          var hubName = "chyahub";
 
          Console.WriteLine("Event Hub Producer V5...");
@@ -28,7 +28,7 @@ namespace EventHubProducerV5
             {
                break;
             }
-            var data = new EventData(Encoding.UTF8.GetBytes(msg));
+            var data = new EventData(new BinaryData(msg));
             dataList.Add(data);
          }
 
